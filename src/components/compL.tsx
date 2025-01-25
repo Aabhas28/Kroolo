@@ -7,7 +7,7 @@ function CompL() {
             {/* Left side - Image */}
             <div className="w-full xlg:w-[45%] xl:w-[30%]">
               <div className="mb-6">
-                <div className=" min-w-9 max-w-9 h-9 lg:min-w-12 lg:max-w-12 lg:h-12  border border-[#E2E2E2] rounded-[6px] flex items-center justify-center">
+                <div className=" min-w-12 max-w-12 h-9 lg:min-w-16 lg:max-w-116 lg:h-8  border border-[#E2E2E2] rounded-[6px] flex items-center justify-center">
                   <img src='https://kroolo.com/_next/static/media/explore-ai-icon%20(1).8f666219.svg' alt='img' />
                 </div>
                 <h1 className=" text-[20px] xl:text-2xl font-inter text-white leading-[46px] xl:leading-[60px]">

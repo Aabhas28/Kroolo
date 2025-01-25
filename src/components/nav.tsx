@@ -63,7 +63,7 @@ const NavigationBar = () => {
     
       {/* Active Item Preview */}
       {activeItem && (
-        <div className="w-full transition-all duration-300 rounded-2xl ease-in-out p-6 mx-6">
+        <div className="w-full transition-all duration-300 rounded-2xl ease-in-out p-6 ">
           <div className="relative rounded-2xl overflow-hidden aspect-video border border-white shadow-2xl max-w-7xl mx-auto">
             <img
               src={navItems.find((item) => item.name === activeItem)?.image}

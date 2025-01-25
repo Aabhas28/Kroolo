@@ -41,12 +41,11 @@ function ComptL1() {
                 <img src="https://kroolo.com/_next/static/media/explore-ai-icon%20(3).338bb010.svg" alt="icon" />
               </div>
               <div className="text-[20px] xl:text-2xl font-inter text-white leading-[46px] xl:leading-[60px]">
-                Project templates
+              Assign tasks
               </div>
             </div>
             <p className="font-inter text-[15px] font-normal leading-6 lg:text-[18px] lg:leading-[30px]">
-              100s of project templates at your disposal to build custom projects from scratch.
-            </p>
+            Assign multiple team members to a task so you can seamlessly collaborate at the same time.            </p>
           </div>
         </div>
         <div className="relative h-[300px] w-full xl:h-[540px]">

@@ -1,7 +1,74 @@
-import React from 'react';
-import { Sparkles, Projector as Projects } from 'lucide-react';
+"use client";
 
-function comp1() {
+import React, { useEffect, useRef, useState } from 'react';
+import { Sparkles, Projector as Projects } from 'lucide-react';
+import gsap from 'gsap';
+
+function Comp1() {
+  const [isInView, setIsInView] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
+
+  const featureRef = useRef<HTMLDivElement | null>(null);
+  const imageRef = useRef<HTMLImageElement | null>(null);
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
+  const headingRef = useRef<HTMLHeadingElement | null>(null);
+
+  const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+    const [entry] = entries;
+    if (entry.isIntersecting && !hasScrolled) {
+      setIsInView(true);
+      setHasScrolled(true); // Ensures animations trigger only on the first scroll
+    }
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(handleIntersection, {
+      threshold: 0.3, // Trigger animation when 30% of the element is visible
+    });
+
+    if (featureRef.current) {
+      observer.observe(featureRef.current);
+    }
+
+    return () => {
+      if (featureRef.current) {
+        observer.unobserve(featureRef.current);
+      }
+    };
+  }, [hasScrolled]);
+
+  useEffect(() => {
+    if (isInView) {
+      // Smooth Feature Item Animations
+      gsap.fromTo(
+        ".feature-item",
+        { opacity: 0, y: 30 }, // Initial state
+        { opacity: 1, y: 0, duration: 1.5, stagger: 0.3, ease: "ease.out" } // Final state with smoother easing
+      );
+
+      // Smooth Heading Animation
+      gsap.fromTo(
+        headingRef.current,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 1.5, ease: "ease.out" }
+      );
+
+      // Smooth Image Animation
+      gsap.fromTo(
+        imageRef.current,
+        { opacity: 0, scale: 0.95 },
+        { opacity: 1, scale: 1, duration: 1.5, ease: "ease.out" }
+      );
+
+      // Smooth Button Animation
+      gsap.fromTo(
+        buttonRef.current,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 1.5, ease: "ease.out", delay: 0.5 }
+      );
+    }
+  }, [isInView]);
+
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Hero Section */}
@@ -12,39 +79,44 @@ function comp1() {
             <Projects className="w-5 h-5 mr-2" />
             <span className="text-sm">Projects</span>
           </div>
-          
-          <h1 className="text-4xl md:text-4xl font-bold leading-tight">
+
+          <h1 ref={headingRef} className="text-4xl md:text-4xl font-bold leading-tight">
             AI-based project management software for you
           </h1>
-          
-          <div className="space-y-6">
-            <FeatureItem icon={<Sparkles />} text="Generate project using text or voice prompts" />
-            <FeatureItem icon={<Sparkles />} text="Chat with project (Discuss anything)" />
+
+          <div className="space-y-6" ref={featureRef}>
+            <FeatureItem
+              icon={<Sparkles />}
+              text="Generate project using text or voice prompts"
+            />
+            <FeatureItem
+              icon={<Sparkles />}
+              text="Chat with project (Discuss anything)"
+            />
             <FeatureItem icon={<Sparkles />} text="100+ templates" />
             <FeatureItem icon={<Sparkles />} text="Embed files (Google apps, Loom, Figma)" />
             <FeatureItem icon={<Sparkles />} text="Manage sprints and agile boards" />
           </div>
-          
-          <button className="bg-indigo-500 hover:bg-indigo-600 text-white px-8 py-3 rounded-lg text-lg font-medium transition-colors">
+
+          <button
+            ref={buttonRef}
+            className="bg-indigo-500 hover:bg-indigo-600 text-white px-8 py-3 rounded-lg text-lg font-medium transition-colors"
+          >
             Explore Projects
           </button>
         </div>
-        
+
         {/* Right Column - Mock UI */}
         <div className="flex-1">
           <div className="relative">
             <div className="rounded-2xl p-6 shadow-xl">
-              <img 
+              <img
+                ref={imageRef}
                 src="https://kroolo.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ffeatures1.5c6da633.png&w=2048&q=75"
                 alt="Project Management Dashboard"
                 className="rounded-lg w-full"
               />
             </div>
-            
-            {/* Floating Elements */}
-            
-            
-           \
           </div>
         </div>
       </div>
@@ -55,11 +127,11 @@ function comp1() {
 // Feature Item Component
 function FeatureItem({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
-    <div className="flex items-center space-x-3">
+    <div className="feature-item flex items-center space-x-3 opacity-0 transform translate-y-6">
       <div className="text-indigo-400">{icon}</div>
       <span className="text-lg text-gray-300">{text}</span>
     </div>
   );
 }
 
-export default comp1;
+export default Comp1;
