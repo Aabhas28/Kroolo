@@ -9,7 +9,7 @@ function Integrate() {
           Integrate with your favorite Apps
         </h1>
         <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-          It doesn't matter which tools or app you use, we will bring your Workspaces, Projects, Tasks, Docs, Goals, Chats to our platform. Save hours of your time by eliminating app switching!
+          It doesnt matter which tools or app you use, we will bring your Workspaces, Projects, Tasks, Docs, Goals, Chats to our platform. Save hours of your time by eliminating app switching!
         </p>
       </div>
 

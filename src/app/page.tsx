@@ -1,14 +1,11 @@
-import NavBar from "@/components/nav-bar";
 import {Navbar} from "@/components/navbar";
 import  Nav  from "@/components/nav";
-import Image from "next/image";
 import Comp1 from "@/components/comp1";
 import Comp2 from "@/components/comp2";
 
 import Footer from "@/components/footer";
 import GetKroolo from "@/components/getKroolo";
 import FAQSection from "@/components/FaqComponent";
-import ToolSelect from "@/components/ToolSelect";
 import EmployeeSlider from "@/components/HoriBar";
 import CompL from "@/components/compL";
 import ComptL1 from "@/components/compL1";

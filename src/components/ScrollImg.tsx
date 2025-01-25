@@ -22,7 +22,7 @@ export default function KrooloUI() {
               objectFit="contain"
             />
           </div>
-          <h1 className="text-3xl font-semibold">Hello! I'm <span className="text-purple-500">Kroo</span>...</h1>
+          <h1 className="text-3xl font-semibold">Hello Im <span className="text-purple-500">Kroo</span>...</h1>
         </div>
 
         {/* Interactive Elements */}

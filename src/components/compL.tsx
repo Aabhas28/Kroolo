@@ -1,4 +1,3 @@
-import { Users } from 'lucide-react';
 
 function CompL() {
     return (

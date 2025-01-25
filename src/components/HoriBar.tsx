@@ -5,9 +5,10 @@ import ToolSelector from "./ToolSelect";
 const EmployeeSlider = () => {
   const [employeeCount, setEmployeeCount] = useState(0);
 
-  const handleChange = (event: any) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmployeeCount(Number(event.target.value));
   };
+  
 
   return (
     <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center p-6 sm:p-8">

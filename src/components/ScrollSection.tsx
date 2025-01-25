@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
@@ -7,7 +7,6 @@ function ScrollSection() {
   const sectionRef = useRef(null);
   const triggerRef = useRef(null);
   const progressBarRef = useRef(null);
-  const [activeSection, setActiveSection] = useState(0);
 
   // Register GSAP ScrollTrigger plugin
   gsap.registerPlugin(ScrollTrigger);
@@ -29,11 +28,7 @@ function ScrollSection() {
           end: "2000 top",
           scrub: 0.6,
           pin: true,
-          onUpdate: (self) => {
-            // Calculate the active section based on scroll progress
-            const sectionIndex = Math.round(self.progress * 4); // 4 sections
-            setActiveSection(sectionIndex);
-          },
+         
         },
       }
     );

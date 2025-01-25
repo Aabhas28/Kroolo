@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, MessageSquare, FileStack, FileInput, Footprints as Sprint, Projector as Projects } from 'lucide-react';
+import { Sparkles, Projector as Projects } from 'lucide-react';
 
 function comp7() {
   return (
