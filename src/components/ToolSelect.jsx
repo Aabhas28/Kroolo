@@ -33,28 +33,29 @@ const ToolSelector = ({employee}) => {
       <div className="mt-[40px] grid grid-cols-1 items-center gap-[40px] lg:grid-cols-2 xlg:items-start xl:mt-20 xl:items-center xl:gap-[100px]">
         {/* Left Tools Section */}
         <div className="border-[#4E4E4E)] h-full rounded-lg border bg-[#191A1D] px-4 py-5 xl:px-8 xl:py-7">
-          <h1 className="text-xl font-bold mb-8">What tools are you using?</h1>
-          <div className="grid grid-cols-5 gap-6">
-            {tools.map((tool) => (
-              <button
-                key={tool.id}
-                onClick={() => handleSelect(tool)}
-                className={`flex flex-col items-center justify-center p-4 rounded-lg border ${
-                  selectedTools.includes(tool)
-                    ? "border-white bg-gray-800"
-                    : "border-gray-700"
-                }`}
-              >
-                <img
-                  src={tool.icon}
-                  alt={tool.name}
-                  className="h-10 w-10 mb-2"
-                />
-                <span className="text-sm">{tool.name}</span>
-              </button>
-            ))}
-          </div>
-        </div>
+  <h1 className="text-xl font-bold mb-8">What tools are you using?</h1>
+  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+    {tools.map((tool) => (
+      <button
+        key={tool.id}
+        onClick={() => handleSelect(tool)}
+        className={`flex flex-col items-center justify-center p-4 rounded-lg border ${
+          selectedTools.includes(tool)
+            ? "border-white bg-gray-800"
+            : "border-gray-700"
+        }`}
+      >
+        <img
+          src={tool.icon}
+          alt={tool.name}
+          className="h-10 w-10 mb-2"
+        />
+        <span className="text-sm text-center">{tool.name}</span>
+      </button>
+    ))}
+  </div>
+</div>
+
 
         {/* Right Savings Section */}
         <div className="bg-gray-900 p-6 rounded-lg shadow-lg flex flex-col justify-between">
