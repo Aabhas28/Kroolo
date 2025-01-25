@@ -140,14 +140,14 @@ onMouseEnter={() => {
                 Sign Up
               </a>
             </div>
-            <button
+           
+          </div>
+          <button
             className="lg:hidden text-white"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
-          </div>
-          
         </div>
       </nav>
 
