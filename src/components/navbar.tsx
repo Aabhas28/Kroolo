@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useState } from "react";
 import PricingSection from "./pricingSection";
 import { Menu, X, ChevronRight,Plus } from "lucide-react";
-import { Card } from "@/components/ui/card"
 
 export function Navbar() {
   const [showDropdown, setShowDropdown] = useState(false);
